@@ -1,0 +1,849 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.scene--5 {
+  position: relative;
+  height: 100vh;
+}
+.scene--5 .scene__sky {
+  position: relative;
+  height: 60vh;
+  background-color: #aee0f4;
+}
+.scene--5 .scene__sky .cloud--large, .scene--5 .scene__sky .cloud--small {
+  position: absolute;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards, moveCloud 60s linear infinite, floatCloud 8s ease-in-out infinite;
+}
+.scene--5 .scene__sky .cloud--large {
+  top: 20%;
+  left: 8%;
+}
+.scene--5 .scene__sky .cloud--large .cloud__shape {
+  width: 360px;
+  height: auto;
+  display: block;
+}
+.scene--5 .scene__sky .cloud--small {
+  top: 25%;
+  left: 2%;
+}
+.scene--5 .scene__sky .cloud--small .cloud__shape {
+  width: 160px;
+  height: auto;
+  display: block;
+}
+.scene--5 .scene__sky .sun {
+  position: absolute;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  animation: sunBobbing 8s ease-in-out infinite;
+}
+.scene--5 .scene__sky .sun__outline {
+  flex-shrink: 0;
+  width: 450px;
+  height: auto;
+}
+.scene--5 .scene__sky .sun__face {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: auto;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards, pulseFace 6s ease-in-out infinite;
+}
+.scene--5 .water-bg {
+  position: absolute;
+  top: 55vh;
+  left: 0;
+  width: 100%;
+  height: 45vh;
+  background-color: #91d4f7;
+}
+.scene--5 .waterline {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  z-index: 2;
+  animation: wave 4s ease-in-out infinite;
+}
+.scene--5 .waterline2 {
+  position: absolute;
+  top: 43.5%;
+  left: 5%;
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  z-index: 2;
+  animation: wave2 6s ease-in-out infinite;
+}
+.scene--5 .fish {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: floatFish 10s ease-in-out infinite;
+}
+.scene--5 .fish__shape {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+.scene--5 .fish__face {
+  position: absolute;
+  top: 48%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 39.6px;
+  height: auto;
+  z-index: 1;
+}
+.scene--5 .fish-1 {
+  bottom: 20%;
+  left: 70%;
+}
+.scene--5 .fish-2 {
+  bottom: 24%;
+  left: 75%;
+}
+.scene--5 .fish-3 {
+  bottom: 28%;
+  left: 80%;
+}
+.scene--5 .fish-4 {
+  bottom: 22%;
+  left: 85%;
+}
+.scene--5 .beach {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+.scene--5 .beach .beach__shape {
+  width: 900px;
+  height: auto;
+  display: block;
+}
+.scene--5 .boy {
+  position: absolute;
+  bottom: 8%;
+  left: 15%;
+  z-index: 3;
+}
+.scene--5 .boy .boy__shape {
+  width: 350px;
+  height: auto;
+  display: block;
+}
+.scene--5 .bottle {
+  position: absolute;
+  bottom: 50%;
+  left: 40%;
+  transform: rotate(10deg);
+  z-index: 4;
+  animation: throwBottle 6s ease-in-out forwards;
+  animation-delay: 1s;
+}
+.scene--5 .bottle .bottle__shape {
+  width: 80px;
+  height: auto;
+  display: block;
+}
+.scene--5 .ringsinwater {
+  position: absolute;
+  bottom: 25%;
+  left: 75%;
+  opacity: 0;
+  transform: translate(-50%, 50%);
+  z-index: 5;
+  transition: none;
+}
+.scene--5 .ringsinwater.visible {
+  animation: ringPulse 1.5s ease forwards;
+}
+.scene--5 .ringsinwater {
+  position: absolute;
+  bottom: 42%;
+  left: 73%;
+  opacity: 0;
+  transform: translate(-50%, 50%);
+  z-index: 5;
+  transition: none;
+}
+.scene--5 .ringsinwater.visible {
+  animation: ringPulse 1.5s ease forwards;
+}
+
+.hill {
+  position: absolute;
+  width: 100%;
+  height: 20vh;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.hill .hill__bottle {
+  width: 56px;
+  height: auto;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.hill .bottle-1 {
+  left: 65.5%;
+  bottom: 12%;
+  transform: rotate(-15deg) scale(0.9);
+}
+.hill .bottle-2 {
+  left: 67.5%;
+  bottom: 13%;
+  transform: rotate(10deg) scale(1);
+}
+.hill .bottle-3 {
+  left: 67.5%;
+  bottom: 33.5%;
+  transform: rotate(-8deg) scale(1.1);
+}
+.hill .bottle-4 {
+  left: 71%;
+  bottom: 14%;
+  transform: rotate(75deg) scale(0.95);
+}
+.hill .bottle-5 {
+  left: 70%;
+  bottom: 34.5%;
+  transform: rotate(130deg) scale(1.05);
+}
+.hill .bottle-6 {
+  left: 73%;
+  bottom: 25%;
+  transform: rotate(8deg) scale(1);
+}
+.hill .bottle-7 {
+  left: 75.5%;
+  bottom: 12%;
+  transform: rotate(-75deg) scale(0.9);
+}
+.hill .bottle-8 {
+  left: 77.5%;
+  bottom: 13%;
+  transform: rotate(-10deg) scale(1);
+}
+.hill .bottle-9 {
+  left: 77.5%;
+  bottom: 33.5%;
+  transform: rotate(8deg) scale(1.1);
+}
+.hill .bottle-10 {
+  left: 81%;
+  bottom: 14%;
+  transform: rotate(-75deg) scale(0.95);
+}
+.hill .bottle-11 {
+  left: 80%;
+  bottom: 34.5%;
+  transform: rotate(-130deg) scale(1.05);
+}
+.hill .bottle-12 {
+  left: 83%;
+  bottom: 25%;
+  transform: rotate(-8deg) scale(1);
+}
+
+.motionlines {
+  position: absolute;
+  bottom: 45%;
+  left: 37%;
+  z-index: 10;
+  opacity: 0;
+  transform: rotate(-50deg);
+  transition: opacity 0.3s ease;
+}
+.motionlines .motionlines__shape {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-20px) translateY(5px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes wave2 {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(20px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes throwBottle {
+  0% {
+    transform: translate(0, 0) rotate(0deg) rotateX(0deg) rotateY(0deg);
+    opacity: 1;
+  }
+  10% {
+    transform: translate(60px, -120px) rotate(360deg) rotateX(10deg) rotateY(-10deg);
+  }
+  20% {
+    transform: translate(120px, -150px) rotate(720deg) rotateX(-10deg) rotateY(10deg);
+  }
+  30% {
+    transform: translate(180px, -130px) rotate(1080deg) rotateX(10deg) rotateY(-10deg);
+  }
+  40% {
+    transform: translate(240px, -100px) rotate(1440deg) rotateX(-10deg) rotateY(10deg);
+  }
+  50% {
+    transform: translate(300px, -70px) rotate(1800deg) rotateX(10deg) rotateY(-10deg);
+  }
+  60% {
+    transform: translate(360px, -50px) rotate(2160deg) rotateX(-10deg) rotateY(10deg);
+  }
+  70% {
+    transform: translate(420px, -20px) rotate(2520deg) rotateX(10deg) rotateY(-10deg);
+  }
+  80% {
+    transform: translate(480px, 0px) rotate(2880deg) rotateX(-10deg) rotateY(10deg);
+  }
+  90% {
+    transform: translate(540px, 30px) rotate(3240deg) rotateX(10deg) rotateY(-10deg);
+  }
+  100% {
+    transform: translate(600px, 50px) rotate(3600deg) rotateX(0deg) rotateY(0deg);
+    opacity: 0;
+  }
+}
+@keyframes moveCloud {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes floatCloud {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pulseFace {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+@keyframes floatFish {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes ringPulse {
+  0% {
+    transform: translate(-50%, 50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, 50%) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes boyJump {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes sunBobbing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+@keyframes bobbing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+.scene--6 {
+  position: relative;
+  height: 100vh;
+}
+.scene--6 .scene__sky {
+  position: relative;
+  height: 60vh;
+  background-color: #aee0f4;
+}
+.scene--6 .scene__sky .cloud--large, .scene--6 .scene__sky .cloud--small {
+  position: absolute;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards, moveCloud 60s linear infinite, floatCloud 8s ease-in-out infinite;
+}
+.scene--6 .scene__sky .cloud--large {
+  top: 20%;
+  left: 8%;
+}
+.scene--6 .scene__sky .cloud--large .cloud__shape {
+  width: 360px;
+  height: auto;
+  display: block;
+}
+.scene--6 .scene__sky .cloud--small {
+  top: 25%;
+  left: 2%;
+}
+.scene--6 .scene__sky .cloud--small .cloud__shape {
+  width: 160px;
+  height: auto;
+  display: block;
+}
+.scene--6 .scene__sky .sun {
+  position: absolute;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  animation: sunBobbing 8s ease-in-out infinite;
+}
+.scene--6 .scene__sky .sun__outline {
+  flex-shrink: 0;
+  width: 450px;
+  height: auto;
+}
+.scene--6 .scene__sky .sun__face {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: auto;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards, pulseFace 6s ease-in-out infinite;
+}
+.scene--6 .water-bg {
+  position: absolute;
+  top: 55vh;
+  left: 0;
+  width: 100%;
+  height: 45vh;
+  background-color: #91d4f7;
+}
+.scene--6 .waterline, .scene--6 .waterline2 {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  z-index: 2;
+}
+.scene--6 .waterline {
+  top: 45%;
+  left: 0;
+  animation: wave 4s ease-in-out infinite;
+}
+.scene--6 .waterline2 {
+  top: 43.5%;
+  left: 5%;
+  animation: wave2 6s ease-in-out infinite;
+}
+.scene--6 .fish {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: floatFish 10s ease-in-out infinite;
+}
+.scene--6 .fish__shape {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+.scene--6 .fish__face {
+  position: absolute;
+  top: 48%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 39.6px;
+  height: auto;
+  z-index: 1;
+}
+.scene--6 .fish-1 {
+  bottom: 20%;
+  left: 75%;
+}
+.scene--6 .fish-2 {
+  bottom: 25%;
+  left: 70%;
+}
+.scene--6 .fish-3 {
+  bottom: 28%;
+  left: 80%;
+}
+.scene--6 .fish-4 {
+  bottom: 22%;
+  left: 85%;
+}
+.scene--6 .beach {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+.scene--6 .beach .beach__shape {
+  width: 900px;
+  height: auto;
+  display: block;
+}
+.scene--6 .girl {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  z-index: 3;
+}
+.scene--6 .girl .girl__shape {
+  width: 350px;
+  height: auto;
+  display: block;
+}
+.scene--6 .machine {
+  position: absolute;
+  bottom: 5%;
+  left: 25%;
+  z-index: 3;
+}
+.scene--6 .machine .machine__shape {
+  width: 500px;
+  height: auto;
+  display: block;
+}
+.scene--6 .bottle {
+  position: absolute;
+  bottom: 50%;
+  left: 40%;
+  transform: rotate(10deg);
+  z-index: 4;
+  display: none;
+}
+.scene--6 .bottle .bottle__shape {
+  width: 96px;
+  height: auto;
+  display: block;
+}
+.scene--6 .motionlines {
+  position: absolute;
+  bottom: 35%;
+  left: 27.5%;
+  z-index: 10;
+  opacity: 0;
+  transform: rotate(-15deg);
+  transition: opacity 0.3s ease;
+}
+.scene--6 .motionlines .motionlines__shape {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+.scene--6 .ringsinwater {
+  position: absolute;
+  bottom: 42%;
+  left: 73%;
+  opacity: 0;
+  transform: translate(-50%, 50%);
+  z-index: 5;
+  transition: none;
+}
+.scene--6 .ringsinwater.visible {
+  animation: ringPulse 1.5s ease forwards;
+}
+.scene--6 .hill {
+  position: absolute;
+  width: 100%;
+  height: 20vh;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+.scene--6 .hill .hill__bottle {
+  width: 56px;
+  height: auto;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.scene--6 .hill .bottle-1 {
+  left: 65.5%;
+  bottom: 12%;
+  transform: rotate(-15deg) scale(0.9);
+}
+.scene--6 .hill .bottle-2 {
+  left: 67.5%;
+  bottom: 13%;
+  transform: rotate(10deg) scale(1);
+}
+.scene--6 .hill .bottle-3 {
+  left: 67.5%;
+  bottom: 33.5%;
+  transform: rotate(-8deg) scale(1.1);
+}
+.scene--6 .hill .bottle-4 {
+  left: 71%;
+  bottom: 14%;
+  transform: rotate(75deg) scale(0.95);
+}
+.scene--6 .hill .bottle-5 {
+  left: 70%;
+  bottom: 34.5%;
+  transform: rotate(130deg) scale(1.05);
+}
+.scene--6 .hill .bottle-6 {
+  left: 73%;
+  bottom: 25%;
+  transform: rotate(8deg) scale(1);
+}
+.scene--6 .hill .bottle-7 {
+  left: 75.5%;
+  bottom: 12%;
+  transform: rotate(-75deg) scale(0.9);
+}
+.scene--6 .hill .bottle-8 {
+  left: 77.5%;
+  bottom: 13%;
+  transform: rotate(-10deg) scale(1);
+}
+.scene--6 .hill .bottle-9 {
+  left: 77.5%;
+  bottom: 33.5%;
+  transform: rotate(8deg) scale(1.1);
+}
+.scene--6 .hill .bottle-10 {
+  left: 81%;
+  bottom: 14%;
+  transform: rotate(-75deg) scale(0.95);
+}
+.scene--6 .hill .bottle-11 {
+  left: 80%;
+  bottom: 34.5%;
+  transform: rotate(-130deg) scale(1.05);
+}
+.scene--6 .hill .bottle-12 {
+  left: 83%;
+  bottom: 25%;
+  transform: rotate(-8deg) scale(1);
+}
+
+.handbottle {
+  position: absolute;
+  bottom: 37%;
+  left: 23%;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.handbottle .handbottle__shape {
+  width: 70px;
+  height: auto;
+  display: block;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-20px) translateY(5px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes wave2 {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(20px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes moveCloud {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes floatCloud {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pulseFace {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+@keyframes floatFish {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes ringPulse {
+  0% {
+    transform: translate(-50%, 50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, 50%) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes sunBobbing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes girlPant {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateX(20px) translateY(5px) rotate(0deg);
+  }
+  60% {
+    transform: translateX(20px) translateY(5px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+}
+@keyframes throwHandBottle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(100px, -10px) rotate(20deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(150px, 0px) rotate(30deg);
+    opacity: 0;
+  }
+}/*# sourceMappingURL=main.css.map */

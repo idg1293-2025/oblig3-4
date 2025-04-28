@@ -1,0 +1,13 @@
+// Simplified reset emitted at top‐level
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+  background: #fff;
+  overflow-x: hidden;
+}
