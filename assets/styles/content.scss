@@ -1,0 +1,654 @@
+// SCSS variables
+$color-white: #ffffff;
+$color-black: #000000;
+$color-gray-800: #333333;
+$color-gray-600: #666666;
+$color-blue-light: #64B5F6;
+$color-blue-dark: #1565C0;
+$color-yellow: #FFDD00;
+$color-sand: #F9E4B7;
+
+$font-family: 'Poppins', sans-serif;
+
+$container-padding-sm: 1rem;
+$container-padding-md: 1.5rem;
+$container-padding-lg: 2rem;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Mixins
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == sm {
+        @media (min-width: $breakpoint-sm) {
+            @content;
+        }
+    }
+    @else if $breakpoint == md {
+        @media (min-width: $breakpoint-md) {
+            @content;
+        }
+    }
+    @else if $breakpoint == lg {
+        @media (min-width: $breakpoint-lg) {
+            @content;
+        }
+    }
+    @else if $breakpoint == xl {
+        @media (min-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: $font-family;
+}
+
+body {
+    background-color: $color-white;
+    color: $color-gray-800;
+    line-height: 1.6;
+    overflow-x: hidden; // Prevent horizontal scrolling
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: $container-padding-sm;
+    padding-right: $container-padding-sm;
+
+    @include respond-to(sm) {
+        padding-left: $container-padding-md;
+        padding-right: $container-padding-md;
+    }
+
+    @include respond-to(lg) {
+        padding-left: $container-padding-lg;
+        padding-right: $container-padding-lg;
+    }
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+/* Flexbox */
+.flex {
+    display: flex;
+
+    &-col {
+        flex-direction: column;
+    }
+
+    &-grow {
+        flex-grow: 1;
+    }
+}
+
+/* Header */
+.header {
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+
+    @include respond-to(sm) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    @include respond-to(lg) {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+}
+
+/* Main content */
+.main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Text section */
+.text-section {
+    width: 100%;
+    padding: 2rem 1rem;
+    max-width: 42rem;
+
+    @include respond-to(md) {
+        width: 70%;
+    }
+
+    @include respond-to(lg) {
+        width: 60%;
+    }
+
+    @include respond-to(xl) {
+        width: 48%;
+    }
+
+    @include respond-to(sm) {
+        padding: 2rem 1.5rem;
+    }
+
+    @include respond-to(lg) {
+        padding: 2rem 2rem;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: $color-gray-800;
+
+        @include respond-to(sm) {
+            font-size: 2.25rem;
+        }
+
+        @include respond-to(lg) {
+            font-size: 2.5rem;
+        }
+    }
+
+    p {
+        color: $color-gray-600;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+
+        @include respond-to(lg) {
+            font-size: 1.125rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* First, Second, and Third scenes */
+.first-scene,
+.second-scene,
+.third-scene {
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+}
+
+/* Sea container - applies to both scenes */
+.sea-container {
+    background: linear-gradient(to bottom, $color-blue-dark 0%, $color-blue-light 100%);
+    width: 100%;
+    height: 10rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    @include respond-to(sm) {
+        height: 12rem;
+    }
+
+    @include respond-to(md) {
+        height: 14rem;
+    }
+
+    @include respond-to(lg) {
+        height: 16rem;
+    }
+}
+
+/* Wave container */
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* Wave SVG */
+.wave-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: bottom center;
+}
+
+/* Sand section */
+.sand {
+    width: 100%;
+    height: auto;
+    background-color: $color-sand;
+}
+
+/* Sun Animation */
+.sun-container {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 4rem;
+    height: 4rem;
+    z-index: 10;
+    animation: float 6s ease-in-out infinite;
+
+    @include respond-to(sm) {
+        right: 1.5rem;
+        top: 1.5rem;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    @include respond-to(lg) {
+        right: 2rem;
+        top: 2rem;
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+.sun-svg {
+    width: 100%;
+    height: 100%;
+    animation: rotate 30s linear infinite;
+}
+
+/* Cloud Animation */
+.cloud-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    padding: 1rem;
+
+    @include respond-to(md) {
+        padding: 2rem;
+    }
+
+    svg {
+        width: 100px;
+        height: auto;
+        opacity: 0.8;
+
+        @include respond-to(sm) {
+            width: 150px;
+        }
+
+        @include respond-to(md) {
+            width: 200px;
+        }
+
+        @include respond-to(lg) {
+            width: 300px;
+        }
+
+        &:nth-child(1) {
+            animation: cloudDrift 60s linear infinite;
+            margin-top: 2rem;
+        }
+
+        &:nth-child(2) {
+            animation: cloudDrift 80s linear infinite reverse;
+            margin-top: 4rem;
+        }
+
+        &:nth-child(3) {
+            animation: cloudDrift 70s linear infinite;
+            margin-top: 1rem;
+        }
+    }
+}
+
+.bird-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; // Space for the bird to fly in the sky
+    z-index: 5;
+}
+
+.bird-svg,
+.item-svg,
+.splash-svg {
+    position: absolute;
+}
+
+.item-svg {
+    opacity: 0; // Initially hidden until dropped
+}
+
+.splash-svg {
+    pointer-events: none; // Prevent interaction with splash
+}
+
+.particle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+// Net-catch-turtle container
+#net-catch-turtle-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.net-catch-turtle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0.8;
+    // Apply net sway animation for underwater effect
+    animation: netSway 4s ease-in-out infinite;
+
+    @include respond-to(md) {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+// Hand container styling
+.hand-container {
+    width: 120px;
+    height: 120px;
+    // Combine hand wave and fade-in animations
+    animation: handWave 2s ease-in-out infinite, fadeIn 1s ease-in forwards;
+    // Ensure initial opacity is 0 for fade-in effect
+    opacity: 0;
+
+    @include respond-to(md) {
+        width: 150px;
+        height: 150px;
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+
+        .cls-1 {
+            fill: #E3B5A4; // Hand color
+            stroke: #C89F91;
+            stroke-width: 1px;
+        }
+    }
+}
+
+// Updated hand SVG styling with consistent color
+.hand-container svg {
+    width: 100%;
+    height: 100%;
+}
+
+.hand-container svg .cls-1 {
+    fill: #e9967a; // Light skin-like color
+    opacity: 0.85; // Slight transparency
+    stroke: #cd853f; // Darker outline
+    stroke-width: 0.5px;
+}
+
+.ground-section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; 
+}
+// Thinking boy container
+.thinkingboy-container {
+    position: absolute;
+    bottom: 0; // Align with the top of the sand section
+    left: 10%;
+    width: 150px;
+    height: 200px;
+    z-index: 10;
+    animation: walk 8s linear infinite; // Walking animation across the screen
+
+    @include respond-to(sm) {
+        width: 200px;
+        height: 250px;
+        left: 15%;
+    }
+
+    @include respond-to(md) {
+        width: 250px;
+        height: 300px;
+        left: 20%;
+    }
+
+    @include respond-to(lg) {
+        width: 300px;
+        height: 350px;
+        left: 25%;
+    }
+}
+
+.third-scene  {
+    position: relative;
+    overflow: hidden;
+    background-color: $color-sand;
+
+}
+.thinkingboy-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: boyBounce 0.5s ease-in-out infinite alternate; // Bounce to simulate walking
+}
+
+.thought-bubble-img {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 180px;
+    height: 180px;
+    animation: floatBubble 2s ease-in-out infinite; // Floating animation
+    z-index: 11;
+    @include respond-to(sm) {
+        width: 200px;
+        height: 200px;
+        top: -120px;
+        right: -120px;
+    }
+
+    @include respond-to(md) {
+        width: 220px;
+        height: 220px;
+        top: -140px;
+        right: -140px;
+    }
+
+}
+
+.light-bulb-img {
+    position: absolute;
+    top: -120px; // Adjusted to be directly above the boy's head
+    right: 50px; // Centered relative to the boy's width (150px / 2 - bulb width / 2)
+    width: 50px;
+    height: 50px;
+    animation: pulseBulb 1.5s ease-in-out infinite; // Pulsing animation
+    z-index: 12;
+
+    @include respond-to(sm) {
+        width: 60px;
+        height: 60px;
+        top: -150px; // Adjusted for larger boy size
+        right: 70px; // Centered (200px / 2 - 60px / 2)
+    }
+
+    @include respond-to(md) {
+        width: 70px;
+        height: 70px;
+        top: -180px; // Adjusted for larger boy size
+        right: 90px; // Centered (250px / 2 - 70px / 2)
+    }
+}
+
+/* Animations */
+
+// Floating animation for sun
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// Rotation animation for sun
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// Cloud drifting animation
+@keyframes cloudDrift {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+// Hand waving animation
+@keyframes handWave {
+    0%, 100% {
+        transform: rotate(0deg) translateY(0); // Start position
+    }
+    50% {
+        transform: rotate(15deg) translateY(-5px); // Wave up and tilt
+    }
+}
+
+// Net swaying animation to simulate underwater movement
+@keyframes netSway {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0deg); // Center position
+    }
+    50% {
+        transform: translateX(-50%) rotate(5deg) translateY(-3px); // Sway and lift
+    }
+}
+
+// Walking animation for thinking boy container
+@keyframes walk {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(80vw - 150px)); // Move across most of the viewport
+    }
+}
+
+// Bounce animation for thinking boy to simulate walking
+@keyframes boyBounce {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+}
+
+// Floating animation for thought bubble
+@keyframes floatBubble {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// Pulsing animation for light bulb
+@keyframes pulseBulb {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Fade In Animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,605 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+/* Flexbox */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+@media (min-width: 640px) {
+  .header {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .header {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Main content */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Text section */
+.text-section {
+  width: 100%;
+  padding: 2rem 1rem;
+  max-width: 42rem;
+}
+@media (min-width: 768px) {
+  .text-section {
+    width: 70%;
+  }
+}
+@media (min-width: 1024px) {
+  .text-section {
+    width: 60%;
+  }
+}
+@media (min-width: 1280px) {
+  .text-section {
+    width: 48%;
+  }
+}
+@media (min-width: 640px) {
+  .text-section {
+    padding: 2rem 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .text-section {
+    padding: 2rem 2rem;
+  }
+}
+.text-section h1,
+.text-section h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+@media (min-width: 640px) {
+  .text-section h1,
+  .text-section h2 {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .text-section h1,
+  .text-section h2 {
+    font-size: 2.5rem;
+  }
+}
+.text-section p {
+  color: #666666;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+@media (min-width: 1024px) {
+  .text-section p {
+    font-size: 1.125rem;
+  }
+}
+.text-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* First, Second, and Third scenes */
+.first-scene,
+.second-scene,
+.third-scene {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+/* Sea container - applies to both scenes */
+.sea-container {
+  background: linear-gradient(to bottom, #1565C0 0%, #64B5F6 100%);
+  width: 100%;
+  height: 10rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+@media (min-width: 640px) {
+  .sea-container {
+    height: 12rem;
+  }
+}
+@media (min-width: 768px) {
+  .sea-container {
+    height: 14rem;
+  }
+}
+@media (min-width: 1024px) {
+  .sea-container {
+    height: 16rem;
+  }
+}
+
+/* Wave container */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Wave SVG */
+.wave-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom center;
+}
+
+/* Sand section */
+.sand {
+  width: 100%;
+  height: auto;
+  background-color: #F9E4B7;
+}
+
+/* Sun Animation */
+.sun-container {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 4rem;
+  height: 4rem;
+  z-index: 10;
+  animation: float 6s ease-in-out infinite;
+}
+@media (min-width: 640px) {
+  .sun-container {
+    right: 1.5rem;
+    top: 1.5rem;
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .sun-container {
+    right: 2rem;
+    top: 2rem;
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+.sun-svg {
+  width: 100%;
+  height: 100%;
+  animation: rotate 30s linear infinite;
+}
+
+/* Cloud Animation */
+.cloud-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .cloud-container {
+    padding: 2rem;
+  }
+}
+.cloud-container svg {
+  width: 100px;
+  height: auto;
+  opacity: 0.8;
+}
+@media (min-width: 640px) {
+  .cloud-container svg {
+    width: 150px;
+  }
+}
+@media (min-width: 768px) {
+  .cloud-container svg {
+    width: 200px;
+  }
+}
+@media (min-width: 1024px) {
+  .cloud-container svg {
+    width: 300px;
+  }
+}
+.cloud-container svg:nth-child(1) {
+  animation: cloudDrift 60s linear infinite;
+  margin-top: 2rem;
+}
+.cloud-container svg:nth-child(2) {
+  animation: cloudDrift 80s linear infinite reverse;
+  margin-top: 4rem;
+}
+.cloud-container svg:nth-child(3) {
+  animation: cloudDrift 70s linear infinite;
+  margin-top: 1rem;
+}
+
+.bird-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 5;
+}
+
+.bird-svg,
+.item-svg,
+.splash-svg {
+  position: absolute;
+}
+
+.item-svg {
+  opacity: 0;
+}
+
+.splash-svg {
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+#net-catch-turtle-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.net-catch-turtle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: netSway 4s ease-in-out infinite;
+}
+@media (min-width: 768px) {
+  .net-catch-turtle {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.hand-container {
+  width: 120px;
+  height: 120px;
+  animation: handWave 2s ease-in-out infinite, fadeIn 1s ease-in forwards;
+  opacity: 0;
+}
+@media (min-width: 768px) {
+  .hand-container {
+    width: 150px;
+    height: 150px;
+  }
+}
+.hand-container svg {
+  width: 100%;
+  height: 100%;
+}
+.hand-container svg .cls-1 {
+  fill: #E3B5A4;
+  stroke: #C89F91;
+  stroke-width: 1px;
+}
+
+.hand-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hand-container svg .cls-1 {
+  fill: #e9967a;
+  opacity: 0.85;
+  stroke: #cd853f;
+  stroke-width: 0.5px;
+}
+
+.ground-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.thinkingboy-container {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 150px;
+  height: 200px;
+  z-index: 10;
+  animation: walk 8s linear infinite;
+}
+@media (min-width: 640px) {
+  .thinkingboy-container {
+    width: 200px;
+    height: 250px;
+    left: 15%;
+  }
+}
+@media (min-width: 768px) {
+  .thinkingboy-container {
+    width: 250px;
+    height: 300px;
+    left: 20%;
+  }
+}
+@media (min-width: 1024px) {
+  .thinkingboy-container {
+    width: 300px;
+    height: 350px;
+    left: 25%;
+  }
+}
+
+.third-scene {
+  position: relative;
+  overflow: hidden;
+  background-color: #F9E4B7;
+}
+
+.thinkingboy-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: boyBounce 0.5s ease-in-out infinite alternate;
+}
+
+.thought-bubble-img {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 180px;
+  height: 180px;
+  animation: floatBubble 2s ease-in-out infinite;
+  z-index: 11;
+}
+@media (min-width: 640px) {
+  .thought-bubble-img {
+    width: 200px;
+    height: 200px;
+    top: -120px;
+    right: -120px;
+  }
+}
+@media (min-width: 768px) {
+  .thought-bubble-img {
+    width: 220px;
+    height: 220px;
+    top: -140px;
+    right: -140px;
+  }
+}
+
+.light-bulb-img {
+  position: absolute;
+  top: -120px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  animation: pulseBulb 1.5s ease-in-out infinite;
+  z-index: 12;
+}
+@media (min-width: 640px) {
+  .light-bulb-img {
+    width: 60px;
+    height: 60px;
+    top: -150px;
+    right: 70px;
+  }
+}
+@media (min-width: 768px) {
+  .light-bulb-img {
+    width: 70px;
+    height: 70px;
+    top: -180px;
+    right: 90px;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes cloudDrift {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+@keyframes handWave {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(15deg) translateY(-5px);
+  }
+}
+@keyframes netSway {
+  0%, 100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(5deg) translateY(-3px);
+  }
+}
+@keyframes walk {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(80vw - 150px));
+  }
+}
+@keyframes boyBounce {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+@keyframes floatBubble {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes pulseBulb {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+/* Fade In Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/*# sourceMappingURL=style.css.map */
