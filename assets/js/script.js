@@ -485,60 +485,6 @@ function createFish(color, width, height) {
   return fish;
 }
 
-<<<<<<< HEAD
-// Add sun animation
-// function animateSun() {
-//   const sun = document.querySelector('.sun-svg');
-//   if (sun) {
-//     // Gentle pulsing animation
-//     gsap.to(sun, {
-//       duration: 4,
-//       scale: 1.05,
-//       ease: 'sine.inOut',
-//       yoyo: true,
-//       repeat: -1
-//     });
-
-//     // Very slow rotation
-//     gsap.to(sun, {
-//       duration: 60,
-//       rotation: 360,
-//       ease: 'none',
-//       repeat: -1,
-//       transformOrigin: 'center center'
-//     });
-//   }
-// }
-
-// Add cloud animation
-// function animateCloud() {
-//   const cloud = document.querySelector('.cloud-svg');
-
-//   if (cloud) {
-    
-//     // Gentle floating animation
-//     gsap.to(cloud, {
-//       duration: 8,
-//       x: 20,
-//       ease: 'sine.inOut',
-//       yoyo: true,
-//       repeat: -1
-//     });
-
-//     // Subtle pulsing animation
-//     gsap.to(cloud, {
-//       duration: 5,
-//       scale: 1.03,
-//       ease: 'sine.inOut',
-//       yoyo: true,
-//       repeat: -1,
-//       transformOrigin: 'center center'
-//     });
-//   }
-// }
-
-=======
->>>>>>> 9ad1204 (update)
 // Add bubbles for extra ocean effect
 function createBubbles(containerId) {
   const waveContainer = document.getElementById(containerId);
