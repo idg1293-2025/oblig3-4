@@ -3,12 +3,12 @@ $color-white: #ffffff;
 $color-black: #000000;
 $color-gray-800: #333333;
 $color-gray-600: #666666;
-$color-blue-light: #64B5F6;
-$color-blue-dark: #1565C0;
-$color-yellow: #FFDD00;
-$color-sand: #F9E4B7;
+$color-blue-light: #64b5f6;
+$color-blue-dark: #1565c0;
+$color-yellow: #ffdd00;
+$color-sand: #f9e4b7;
 
-$font-family: 'Poppins', sans-serif;
+$font-family: "Poppins", sans-serif;
 
 $container-padding-sm: 1rem;
 $container-padding-md: 1.5rem;
@@ -26,18 +26,15 @@ $breakpoint-xl: 1280px;
         @media (min-width: $breakpoint-sm) {
             @content;
         }
-    }
-    @else if $breakpoint == md {
+    } @else if $breakpoint == md {
         @media (min-width: $breakpoint-md) {
             @content;
         }
-    }
-    @else if $breakpoint == lg {
+    } @else if $breakpoint == lg {
         @media (min-width: $breakpoint-lg) {
             @content;
         }
-    }
-    @else if $breakpoint == xl {
+    } @else if $breakpoint == xl {
         @media (min-width: $breakpoint-xl) {
             @content;
         }
@@ -62,7 +59,7 @@ body {
 }
 
 body {
-    background-color: $color-white;
+    background-color: $color-blue-light;
     color: $color-gray-800;
     line-height: 1.6;
     overflow-x: hidden; // Prevent horizontal scrolling
@@ -404,7 +401,9 @@ body {
     width: 120px;
     height: 120px;
     // Combine hand wave and fade-in animations
-    animation: handWave 2s ease-in-out infinite, fadeIn 1s ease-in forwards;
+    animation:
+        handWave 2s ease-in-out infinite,
+        fadeIn 1s ease-in forwards;
     // Ensure initial opacity is 0 for fade-in effect
     opacity: 0;
 
@@ -418,8 +417,8 @@ body {
         height: 100%;
 
         .cls-1 {
-            fill: #E3B5A4; // Hand color
-            stroke: #C89F91;
+            fill: #e3b5a4; // Hand color
+            stroke: #c89f91;
             stroke-width: 1px;
         }
     }
@@ -443,7 +442,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px; 
+    height: 100px;
 }
 // Thinking boy container
 .thinkingboy-container {
@@ -474,11 +473,10 @@ body {
     }
 }
 
-.third-scene  {
+.third-scene {
     position: relative;
     overflow: hidden;
     background-color: $color-sand;
-
 }
 .thinkingboy-img {
     width: 100%;
@@ -510,7 +508,6 @@ body {
         top: -140px;
         right: -140px;
     }
-
 }
 
 .light-bulb-img {
@@ -541,7 +538,8 @@ body {
 
 // Floating animation for sun
 @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {
@@ -571,7 +569,8 @@ body {
 
 // Hand waving animation
 @keyframes handWave {
-    0%, 100% {
+    0%,
+    100% {
         transform: rotate(0deg) translateY(0); // Start position
     }
     50% {
@@ -581,7 +580,8 @@ body {
 
 // Net swaying animation to simulate underwater movement
 @keyframes netSway {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateX(-50%) rotate(0deg); // Center position
     }
     50% {
@@ -611,7 +611,8 @@ body {
 
 // Floating animation for thought bubble
 @keyframes floatBubble {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {
@@ -621,7 +622,8 @@ body {
 
 // Pulsing animation for light bulb
 @keyframes pulseBulb {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.8;
     }
