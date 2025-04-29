@@ -485,6 +485,7 @@ function createFish(color, width, height) {
   return fish;
 }
 
+<<<<<<< HEAD
 // Add sun animation
 // function animateSun() {
 //   const sun = document.querySelector('.sun-svg');
@@ -536,6 +537,8 @@ function createFish(color, width, height) {
 //   }
 // }
 
+=======
+>>>>>>> 9ad1204 (update)
 // Add bubbles for extra ocean effect
 function createBubbles(containerId) {
   const waveContainer = document.getElementById(containerId);
